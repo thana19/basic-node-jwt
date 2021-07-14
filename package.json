@@ -19,5 +19,8 @@
   "homepage": "https://github.com/thana19/basic-node-101#readme",
   "dependencies": {
     "fastify": "^3.19.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
   }
 }

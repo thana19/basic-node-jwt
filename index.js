@@ -5,7 +5,7 @@ const startApp = async () => {
     const appOptions = {
         logger: true
     }
-    const app = buildApp(applications)
+    const app = buildApp(appOptions)
 
     try{
         app.listen(config.port, config.hostname)

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "MONGO_URI='mongodb+srv://admin:357ZNnRMtGwNUYk@cluster0.sokv7.mongodb.net/basic101' nodemon index.js"
   },
   "repository": {
     "type": "git",

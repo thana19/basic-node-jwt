@@ -42,10 +42,19 @@ const deleteUser = async (request, reply) => {
     reply.send(result)
 }
 
+const postUserLogin = async (request, reply) => {
+    const { username, password } = request.body
+
+    await userModel.loginUser(username, password)
+
+    return 'Logged In'
+}
+
 module.exports = {
     getUsers,
     getUserById,
     postUser,
     patchUser,
-    deleteUser
+    deleteUser,
+    postUserLogin
 }

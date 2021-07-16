@@ -9,6 +9,16 @@ const generatePassword = async (password) => {
     return passwordHashed
 }
 
+const comparePassword = async (password, existsPassword) => {
+    const isPasswordCorrect = await bcrypt.compare(password, existsPassword)
+
+    if (!isPasswordCorrect) {
+        throw new Error('unauthrized password')
+    }
+
+    return true
+}
+
 const createNewUser = async (doc = {}) => {
     const insertDoc = { ...doc}
 
@@ -49,10 +59,25 @@ const deleteUserById = async (userId) => {
     return deletedUser
 }
 
+const loginUser = async (username, password) => {
+   const user = await Users.findOne({
+       username
+   }) 
+
+   if (!user) {
+       throw new Error('unauthrized name')
+   }
+   await comparePassword(password, user.password)
+
+   //create JWT
+
+}
+
 module.exports = {
     createNewUser,
     getUsers,
     getUserById,
     updateUserById,
-    deleteUserById
+    deleteUserById,
+    loginUser
 }

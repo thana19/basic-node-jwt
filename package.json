@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "MONGO_URI='mongodb+srv://admin:357ZNnRMtGwNUYk@cluster0.sokv7.mongodb.net/basic101' nodemon index.js"
+    "dev": "SECRET_KEY='12345678' MONGO_URI='mongodb+srv://admin:357ZNnRMtGwNUYk@cluster0.sokv7.mongodb.net/basic101' nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/thana19/basic-node-101#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "fastify": "^3.19.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.13.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.12"

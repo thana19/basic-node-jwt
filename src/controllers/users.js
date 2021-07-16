@@ -45,9 +45,9 @@ const deleteUser = async (request, reply) => {
 const postUserLogin = async (request, reply) => {
     const { username, password } = request.body
 
-    await userModel.loginUser(username, password)
+    const userToken = await userModel.loginUser(username, password)
 
-    return 'Logged In'
+    return userToken
 }
 
 module.exports = {

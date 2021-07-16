@@ -1,7 +1,11 @@
 const controllers = require('./controllers')
+const hooks = require('./hooks') 
 
 const userRoutes = (app) => {
-    app.get('/users', controllers.users.getUsers)
+    app.get('/users',{
+        preHandler: [hooks.auth.validateToken]
+    }, controllers.users.getUsers)
+    // app.get('/users', controllers.users.getUsers)
     app.get('/users/:userId', controllers.users.getUserById)
     app.post('/users', controllers.users.postUser)
     app.patch('/users', controllers.users.patchUser)
